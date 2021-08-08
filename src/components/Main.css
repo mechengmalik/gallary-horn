@@ -1,0 +1,15 @@
+body{
+    text-align: center;
+    
+}
+img{display: flexbox;
+    width: 200px;
+    height: 200px;
+}
+h1{
+    color: red;
+    font-size: xx-large;
+}
+footer{
+    margin-top: 50%;
+}
