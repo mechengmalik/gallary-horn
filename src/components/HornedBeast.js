@@ -17,27 +17,15 @@ class HornedBeast extends React.Component {
             imageVote:this.state.imageVote +1
         })
     }
-
-
+    
+    
+    /* bootstrap way */
     render() {
         return (
             <div className="horn">
-                {/* <h2>{this.props.title}</h2>
-                <img onClick={this.votes}
-                    src={this.props.imageUrl} alt="hornedBeasts" title="horned"
-
-                />
-                <p>
-                    {this.props.description}
-                </p>
-                <p>Number Of Votes = {this.state.imageVote}</p> */}
-
-
-
-                {/* bootstrap way */}
 
              <Card style={{ width: '18rem' }}>
-                    <Card.Img onClick={this.votes} variant="top" src={this.props.imageUrl} />
+                    <Card.Img variant="top" src={this.props.imageUrl} />
                     <Card.Body>
                         <Card.Title>{this.props.title}</Card.Title>
                         <Card.Text>
@@ -51,8 +39,15 @@ class HornedBeast extends React.Component {
 
             </div>
 
-        )
-    }
+)
+}
 
 }
 export default HornedBeast;
+//  { <h2>{this.props.title}</h2>
+//  <img onClick={this.votes}
+//      src={this.props.imageUrl} alt="hornedBeasts" title="horned"/>
+//  <p>
+//      {this.props.description}
+//  </p>
+//  <p>Number Of Votes = {this.state.imageVote}</p> }

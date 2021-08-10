@@ -3,28 +3,35 @@ import HornedBeast from './HornedBeast'
 import './Main.css';
 let horned = require("./InfoArray.json")
 
- 
+
 
 
 class Main extends React.Component {
-    
+
     render() {
         return (
             <div>
-                {horned.map((item,i)=> {
+                {horned.map((item, i) => {
                     return (
                         <HornedBeast
                             key={i}
                             title={item.title}
                             imageUrl={item.image_url}
                             description={item.description}
-                                />
+                        />
                     )
                 })}
             </div>
 
 
 
+
+        )
+    }
+}
+
+
+export default Main;
 
 
             // <div>
@@ -33,9 +40,3 @@ class Main extends React.Component {
             //     <HornedBeast title='Horned:3' imageUrl='https://www.dhresource.com/0x0s/f2-albu-g5-M00-1A-11-rBVaI1hsIIiALxKzAAIHjSU3VkE490.jpg/wholesale-halloween-costume-prop-unicorn.jpg' description='Someone wearing a creepy unicorn head mask'  />
 
             // </div>
-        )
-    }
-}
-
-
-export default Main;
