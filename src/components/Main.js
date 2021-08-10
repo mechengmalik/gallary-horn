@@ -7,6 +7,7 @@ let horned = require("./InfoArray.json")
 
 
 class Main extends React.Component {
+    
     render() {
         return (
             <div>
