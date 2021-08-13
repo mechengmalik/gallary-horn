@@ -30,10 +30,16 @@ class Main extends React.Component {
         if (!(isNaN(selectHorn))) {
             // console.log(selectHorn)
            HornNum = horned.filter((item) => {
-                if (item.horns === selectHorn) {
+                if (item.horns === selectHorn){
                     return 1;
+                    
+
                 }
+                  
+                    
+                
             })
+            console.log(HornNum)
 
         } else {
             HornNum = horned;
@@ -56,7 +62,7 @@ class Main extends React.Component {
 
 
 
-                {horned.map((item, i) => {
+                {this.state.horned2.map((item, i) => {
                     return (
                         <HornedBeast
                             key={i}
