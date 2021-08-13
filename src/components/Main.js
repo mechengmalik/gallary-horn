@@ -1,4 +1,5 @@
 import React from 'react';
+import FilterByHorn from './FilterByHorn';
 import HornedBeast from './HornedBeast'
 import './Main.css';
 let horned = require("./InfoArray.json")
@@ -6,11 +7,55 @@ let horned = require("./InfoArray.json")
 
 
 
+
+
+
+
 class Main extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            horned2: horned,
+        }
+    }
+
+
+
+    selectHornNum = (event) => {
+        event.preventDefault();
+
+        let HornNum = [];
+
+        let selectHorn = (event.target.value);
+        if (!(isNaN(selectHorn))) {
+            // console.log(selectHorn)
+           HornNum = horned.filter((item) => {
+                if (item.horns === selectHorn) {
+                    return 1;
+                }
+            })
+
+        } else {
+            HornNum = horned;
+        
+        }
+
+        this.setState({
+            horned2: HornNum
+        })
+    }
 
     render() {
         return (
             <div>
+
+                
+                <FilterByHorn selectHornNum={this.selectHornNum} />
+
+
+
+
+
                 {horned.map((item, i) => {
                     return (
                         <HornedBeast
@@ -19,10 +64,12 @@ class Main extends React.Component {
                             imageUrl={item.image_url}
                             description={item.description}
                             showTheModal={this.props.showTheModal}
-                          data = {item}  
+                            data={item}
+                            hornNum={this.props.hornNum}
                         />
                     )
                 })}
+
             </div>
 
 

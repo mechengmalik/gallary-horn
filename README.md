@@ -1,7 +1,6 @@
+# APP INFO
 
-
-
-umber and name of feature: adding bootstrab ,new array for object, map method for the new array
+Number and name of feature: adding bootstrab ,new array for object, map method for the new array
 
 Estimate of time needed to complete:30 min
 
