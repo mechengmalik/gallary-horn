@@ -15,44 +15,24 @@ class Main extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            horned2: horned,
+            horned2: -1,
         }
     }
 
 
 
-    selectHornNum = (event) => {
-        event.preventDefault();
-
-        let HornNum = [];
-
-        let selectHorn = (event.target.value);
-        if (!(isNaN(selectHorn))) {
-            // console.log(selectHorn)
-           HornNum = horned.filter((item) => {
-                if (item.horns === selectHorn){
-                    return 1;
-                    
-
-                }
-                  
-                    
-                
-            })
-            console.log(HornNum)
-
-        } else {
-            HornNum = horned;
-        
-        }
-
+    selectHornNum = (event) =>{
         this.setState({
-            horned2: HornNum
+            horned2:Number(event.target.value)
         })
     }
 
     render() {
+        let filtered = horned.filter((item)=> item.horns === this.state.horned2);
+        filtered = filtered.length ===0?horned:filtered;
+        console.log(filtered)
         return (
+           
             <div>
 
                 
@@ -62,7 +42,7 @@ class Main extends React.Component {
 
 
 
-                {this.state.horned2.map((item, i) => {
+                {filtered.map((item, i) => {
                     return (
                         <HornedBeast
                             key={i}
