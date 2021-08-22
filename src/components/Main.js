@@ -1,4 +1,5 @@
 import React from 'react';
+import FilterByHorn from './FilterByHorn';
 import HornedBeast from './HornedBeast'
 import './Main.css';
 let horned = require("./InfoArray.json")
@@ -6,12 +7,42 @@ let horned = require("./InfoArray.json")
 
 
 
+
+
+
+
 class Main extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            horned2: -1,
+        }
+    }
+
+
+
+    selectHornNum = (event) =>{
+        this.setState({
+            horned2:Number(event.target.value)
+        })
+    }
 
     render() {
+        let filtered = horned.filter((item)=> item.horns === this.state.horned2);
+        filtered = filtered.length ===0?horned:filtered;
+        console.log(filtered)
         return (
+           
             <div>
-                {horned.map((item, i) => {
+
+                
+                <FilterByHorn selectHornNum={this.selectHornNum} />
+
+
+
+
+
+                {filtered.map((item, i) => {
                     return (
                         <HornedBeast
                             key={i}
@@ -19,10 +50,12 @@ class Main extends React.Component {
                             imageUrl={item.image_url}
                             description={item.description}
                             showTheModal={this.props.showTheModal}
-                          data = {item}  
+                            data={item}
+                            hornNum={this.props.hornNum}
                         />
                     )
                 })}
+
             </div>
 
 
